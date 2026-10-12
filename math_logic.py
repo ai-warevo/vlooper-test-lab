@@ -1,3 +1,13 @@
 def add(a, b):
-    # ОШИБКА: функция вместо сложения возвращает разность!
-    return a - b 
+    return a + b
+
+def subtract(a, b):
+    return a - b
+
+def multiply(a, b):
+    return a * b
+
+def divide(a, b):
+    if b == 0:
+        raise ValueError("Cannot divide by zero")
+    return a / b
