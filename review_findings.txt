@@ -1,0 +1,28 @@
+# Code Review Findings - Pull Request #37
+
+## Summary
+The changes primarily fix a logic error in `math_logic.py` and introduce comprehensive testing using `pytest`. The test execution script has also been improved to support these new tests.
+
+## Detailed Observations
+
+### 1. Logic Fix (`math_logic.py`)
+- **Description**: Fixed the `add` function which was incorrectly performing subtraction.
+- **Status**: Correct.
+
+### 2. New Test Suite (`test_math_logic.py`)
+- **Description**: Added a new file with several test cases covering positive numbers, negative numbers, mixed signs, zero, floating point values (correctly using `pytest.approx`), and large integers.
+- **Status**: Excellent coverage.
+
+### 3. Test Script Update (`test.sh`)
+- **Description**: Refactored the shell script to use a "fail-fast" approach for the initial check and integrated the new `pytest` suite.
+- **Status**: Improved robustness.
+
+### 4. Unintentional File Inclusion (`.coverage`)
+- **Issue**: The `.coverage` file is being included in the pull request.
+- **Risk**: Coverage files are environment-specific artifacts generated during testing and should not be committed to the repository. This can cause noise in git history and potential conflicts.
+- **Recommendation**: 
+    1. Remove `.coverage` from the commit: `git rm --cached .coverage`.
+    2. Add `.coverage` to the `.gitignore` file to prevent future accidental commits.
+
+## Verdict
+**Request Changes** (due to `.coverage` inclusion). Once the coverage file is removed and ignored, this PR should be approved.

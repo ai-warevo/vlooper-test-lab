@@ -1,3 +1,6 @@
+"""Module for mathematical operations."""
+
+
 def add(a, b):
-    # ОШИБКА: функция вместо сложения возвращает разность!
-    return a - b 
+    """Add two numbers."""
+    return a + b
