@@ -1,0 +1,21 @@
+# Code Review Findings for PR #49
+
+## Summary
+The changes fix a bug in the `add` function and add new mathematical utilities (`sqrt`, `pow`) along with comprehensive testing. However, there is an issue regarding version control hygiene.
+
+## Issues & Suggestions
+
+### ❌ Bad Practice: Inclusion of `.coverage` file
+- **Description**: The PR includes the `.coverage` binary file.
+- **Impact**: Coverage files are tool-generated artifacts that should not be tracked in Git. They cause repository bloat and potential merge conflicts.
+- **Recommendation**: 
+  1. Remove the file from the repository: `git rm --cached .coverage`.
+  2. Add `.coverage` to the `.gitignore` file to prevent future accidental commits.
+
+## Positive Aspects
+- ✅ **Bug Fix**: The incorrect implementation of `add(a, b)` was correctly fixed.
+- ✅ **New Features**: `sqrt` and `pow` are well-implemented with appropriate documentation.
+- ✅ **Testing Quality**: The addition of `tests/test_math_logic.py` using `pytest` is excellent and covers various edge cases.
+
+## Verdict
+Request Changes (due to `.coverage` being committed).
