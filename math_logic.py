@@ -1,3 +1,12 @@
+import math
+
+
 def add(a, b):
-    # ОШИБКА: функция вместо сложения возвращает разность!
-    return a - b 
+    # ОШИБКА исправлена!
+    return a + b
+
+def sqrt(x):
+    return math.sqrt(x)
+
+def pow(a, b):
+    return math.pow(a, b) 
